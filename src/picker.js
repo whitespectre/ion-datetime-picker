@@ -8,6 +8,7 @@ angular.module("ion-datetime-picker", ["ionic"])
                 title: "=?",
                 subTitle: "=?",
                 buttonOk: "=?",
+                onSuccess: "&",
                 buttonCancel: "=?",
                 monthStep: "=?",
                 hourStep: "=?",
@@ -325,8 +326,10 @@ angular.module("ion-datetime-picker", ["ionic"])
                 };
 
                 $scope.commit = function() {
-                    $scope.modelDate = new Date($scope.year, $scope.month, $scope.day, $scope.hour, $scope.minute, $scope.second);
+                    var result = new Date($scope.year, $scope.month, $scope.day, $scope.hour, $scope.minute, $scope.second);
+                    $scope.modelDate = result;
                     ngModelCtrl.$setViewValue($scope.modelDate);
+                    $scope.onSuccess && $scope.onSuccess()(result);
                 };
 
                 $element.on("click", $scope.showPopup);
