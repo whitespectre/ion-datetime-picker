@@ -31,11 +31,16 @@ gulp.task("html", function() {
 });
 
 gulp.task("js", ["html"], function() {
-    return gulp.src(["src/picker.js", "src/picker-*.js", "release/ion-datetime-picker.min.js"])
+    gulp.src(["src/picker.js", "src/picker-*.js", "release/ion-datetime-picker.min.js"])
         .pipe(ngAnnotate())
         .pipe(concat("ion-datetime-picker.min.js"))
         .pipe(iife())
         .pipe(uglify())
+        .pipe(gulp.dest("release"));
+    gulp.src(["src/picker.js", "src/picker-*.js", "release/ion-datetime-picker.min.js"])
+        .pipe(ngAnnotate())
+        .pipe(concat("ion-datetime-picker.js"))
+        .pipe(iife())
         .pipe(gulp.dest("release"));
 });
 
