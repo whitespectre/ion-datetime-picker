@@ -16,7 +16,7 @@
         }
         .day {
             &:hover, &.activated, &.today:hover, &.today.activated {
-                background-color: #bdf;
+                background-color: #04B0FA;
                 color: black;
                 cursor: pointer;
             }
@@ -24,7 +24,7 @@
                 background-color: #e4e4e4;
             }
             &.selected, &.selected:hover, &.selected.activated {
-                background-color: #387ef5;
+                background-color: #04B0FA;
                 color: white;
             }
             &.disabled, &.disabled:hover, &.disabled.activated {
