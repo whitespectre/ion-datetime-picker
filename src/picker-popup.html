@@ -5,13 +5,13 @@
         </div>
         <label class="col col-50 month-input">
             <div class="item item-input item-select">
-                <select ng-model="bind.month" ng-options="index as month for (index, month) in i18n.months" ng-change="change('month')"></select>
+                <select disabled ng-model="bind.month" ng-options="index as month for (index, month) in i18n.months" ng-change="change('month')"></select>
             </div>
         </label>
         <label class="col year-input">
             <div class="item item-input">
                 <div>
-                    <input type="number" ng-model="bind.year" min="1900" max="2999" ng-change="change('year')" ng-blur="changed()" required>
+                    <input disabled type="number" ng-model="bind.year" min="1900" max="2999" ng-change="change('year')" ng-blur="changed()" required>
                 </div>
             </div>
         </label>
@@ -43,7 +43,7 @@
         <div ng-if-start="secondsEnabled" class="col"></div>
         <div ng-if-end class="col-20"><button type="button" class="button button-positive button-clear icon ion-chevron-up" ng-click="changeBy(+secondStep, 'second')"></button></div>
         <div ng-if-start="meridiemEnabled" class="col"></div>
-        <div ng-if-end class="col-20"><button type="button" class="button button-positive button-clear icon ion-chevron-up" ng-click="changeBy(+12, 'hour')"></button></div>
+        <div ng-if-end class="col-20"><button ng-disabled="bind.meridiem === 'PM'" type="button" class="button button-positive button-clear icon ion-chevron-up" ng-click="changeBy(+12, 'hour')"></button></div>
         <div class="col"></div>
     </div>
     <div class="row time">
@@ -51,7 +51,7 @@
         <label class="col col-20">
             <div class="item item-input">
                 <div>
-                    <input type="text" ng-model="bind.hour" pattern="0?([01]?[0-9]|2[0-3])" ng-change="change('hour')" ng-blur="changed()" required>
+                    <input disabled type="text" ng-model="bind.hour" pattern="0?([01]?[0-9]|2[0-3])" ng-change="change('hour')" ng-blur="changed()" required>
                 </div>
             </div>
         </label>
@@ -59,7 +59,7 @@
         <label class="col col-20">
             <div class="item item-input">
                 <div>
-                    <input type="text" ng-model="bind.minute" pattern="0?[0-5]?[0-9]" ng-change="change('minute')" ng-blur="changed()" required>
+                    <input disabled type="text" ng-model="bind.minute" pattern="0?[0-5]?[0-9]" ng-change="change('minute')" ng-blur="changed()" required>
                 </div>
             </div>
         </label>
@@ -67,7 +67,7 @@
         <label ng-if-end class="col col-20">
             <div class="item item-input">
                 <div>
-                    <input type="text" ng-model="bind.second" pattern="0?[0-5]?[0-9]" ng-change="change('second')" ng-blur="changed()" required>
+                    <input disabled type="text" ng-model="bind.second" pattern="0?[0-5]?[0-9]" ng-change="change('second')" ng-blur="changed()" required>
                 </div>
             </div>
         </label>
@@ -75,7 +75,7 @@
         <label ng-if-end class="col col-20">
             <div class="item item-input">
                 <div>
-                    <input type="text" ng-model="bind.meridiem" pattern="[aApP][mM]" ng-change="change('meridiem')" ng-blur="changed()" required>
+                    <input disabled type="text" ng-model="bind.meridiem" pattern="[aApP][mM]" ng-change="change('meridiem')" ng-blur="changed()" required>
                 </div>
             </div>
         </label>
@@ -89,7 +89,7 @@
         <div ng-if-start="secondsEnabled" class="col"></div>
         <div ng-if-end class="col-20"><button type="button" class="button button-positive button-clear icon ion-chevron-down" ng-click="changeBy(-secondStep, 'second')"></button></div>
         <div ng-if-start="meridiemEnabled" class="col"></div>
-        <div ng-if-end class="col-20"><button type="button" class="button button-positive button-clear icon ion-chevron-down" ng-click="changeBy(-12, 'hour')"></button></div>
+        <div ng-if-end class="col-20"><button type="button" ng-disabled="bind.meridiem === 'AM'" class="button button-positive button-clear icon ion-chevron-down" ng-click="changeBy(-12, 'hour')"></button></div>
         <div class="col"></div>
     </div>
 </div>

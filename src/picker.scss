@@ -1,4 +1,9 @@
 .ion-datetime-picker {
+    .year-input, .item-input {
+        input {
+            background-color: white;
+        }        
+    }
     .calendar {
         text-align: center;
         font-size: 12px;
