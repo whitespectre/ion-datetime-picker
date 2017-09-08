@@ -43,7 +43,7 @@
         <div ng-if-start="secondsEnabled" class="col"></div>
         <div ng-if-end class="col-20"><button type="button" class="button button-positive button-clear icon ion-chevron-up" ng-click="changeBy(+secondStep, 'second')"></button></div>
         <div ng-if-start="meridiemEnabled" class="col"></div>
-        <div ng-if-end class="col-20"><button ng-disabled="bind.meridiem === 'PM'" type="button" class="button button-positive button-clear icon ion-chevron-up" ng-click="changeBy(+12, 'hour')"></button></div>
+        <div ng-if-end class="col-20"><button ng-disabled="bind.meridiem === i18n.pm" type="button" class="button button-positive button-clear icon ion-chevron-up" ng-click="changeBy(+12, 'hour')"></button></div>
         <div class="col"></div>
     </div>
     <div class="row time">
@@ -75,7 +75,7 @@
         <label ng-if-end class="col col-20">
             <div class="item item-input">
                 <div>
-                    <input disabled type="text" ng-model="bind.meridiem" pattern="[aApP][mM]" ng-change="change('meridiem')" ng-blur="changed()" required>
+                    <input disabled type="text" ng-model="bind.meridiem" ng-change="change('meridiem')" ng-blur="changed()" required>
                 </div>
             </div>
         </label>
@@ -89,7 +89,7 @@
         <div ng-if-start="secondsEnabled" class="col"></div>
         <div ng-if-end class="col-20"><button type="button" class="button button-positive button-clear icon ion-chevron-down" ng-click="changeBy(-secondStep, 'second')"></button></div>
         <div ng-if-start="meridiemEnabled" class="col"></div>
-        <div ng-if-end class="col-20"><button type="button" ng-disabled="bind.meridiem === 'AM'" class="button button-positive button-clear icon ion-chevron-down" ng-click="changeBy(-12, 'hour')"></button></div>
+        <div ng-if-end class="col-20"><button type="button" ng-disabled="bind.meridiem === i18n.am" class="button button-positive button-clear icon ion-chevron-down" ng-click="changeBy(-12, 'hour')"></button></div>
         <div class="col"></div>
     </div>
 </div>

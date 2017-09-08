@@ -3,6 +3,8 @@ angular.module("ion-datetime-picker")
         return  {
             ok: "OK",
             cancel: "Cancel",
+            am: 'AM',
+            pm: 'PM',
             weekdays: $window.moment ? $window.moment.weekdaysMin() : ["Su", "Mo", "Tu", "We", "Th", "Fr", "Sa"],
             months: $window.moment ? $window.moment.months() : ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]
         };

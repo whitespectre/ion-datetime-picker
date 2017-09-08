@@ -134,7 +134,7 @@ angular.module("ion-datetime-picker", ["ionic"])
                         $scope.hour = date.getHours();
                         $scope.minute = date.getMinutes();
                         $scope.second = date.getSeconds();
-                        $scope.meridiem = $scope.hour < 12 ? "AM" : "PM";
+                        $scope.meridiem = $scope.hour < 12 ? $scope.i18n.am : $scope.i18n.pm;
 
                         $scope.bind.hour = $scope.meridiemEnabled ? ($scope.hour % 12 || 12).toString() : $scope.hour.toString();
                         $scope.bind.minute = ($scope.minute < 10 ? "0" : "") + $scope.minute.toString();
@@ -167,9 +167,9 @@ angular.module("ion-datetime-picker", ["ionic"])
                     var value = $scope.bind[unit];
                     if (value && unit === "meridiem") {
                         value = value.toUpperCase();
-                        if (value === "AM" && $scope.meridiem === "PM") {
+                        if (value === $scope.i18n.am && $scope.meridiem === $scope.i18n.pm) {
                             $scope.hour -= 12;
-                        } else if (value === "PM" && $scope.meridiem === "AM") {
+                        } else if (value === $scope.i18n.pm && $scope.meridiem === $scope.i18n.am) {
                             $scope.hour += 12;
                         }
                         changeViewData();
